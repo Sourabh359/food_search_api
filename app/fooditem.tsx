@@ -65,18 +65,19 @@ if (error) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <figure className="sticky top-6">
-                    <Image src={item.strMealThumb} alt={item.strMeal} width={400} height={400} loading="eager" className="w-full my-4 rounded-2xl"/>
-                    <figcaption className="mt-3 block text-center font-bold text-2xl">{item.strMeal}</figcaption>
+                    <Image src={item.strMealThumb} alt={item.strMeal} width={400} height={400} loading="eager" className="w-full mb-4 rounded-2xl"/>
+                    <figcaption className="mt-3 block text-center font-bold text-2xl text-slate-800
+">{item.strMeal}</figcaption>
                 </figure>
             </div>
-            <div>
-                {item.strArea && <p className="my-3">Area: {item.strArea}</p>}
-                {item.strCountry && <p className="my-3">Country: {item.strCountry}</p>}
-                <p>Category: {item.strCategory}</p>
+            <section className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+                {item.strArea && <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Area : </span> {item.strArea}</p>}
+                {item.strCountry && <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Country : </span>{item.strCountry}</p>}
+                <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Category :</span> {item.strCategory}</p>
 
-                <table className="w-full border-collapse border border-gray-300 mt-4">
-                    <thead>
-                        <tr className="bg-gray-100">
+                <table className="w-full overflow-hidden border border-slate-200 mt-4">
+                    <thead className="bg-slate-100 text-slate-800">
+                        <tr >
                             <th className="border p-2 text-left">Ingredient</th>
                             <th className="border p-2 text-left">Quantity</th>
                         </tr>
@@ -98,18 +99,18 @@ if (error) {
                         })}
                     </tbody>
                 </table>
-                <h3 className="text-2xl font-bold my-3">Instructions:</h3>
-                <ol>
+                <h3 className="text-2xl font-bold text-slate-900 my-3">Instructions:</h3>
+                <ol className="leading-8 text-slate-700">
                     {
                         item.strInstructions?.split("\r\n").map((x,y)=>(
-                            <li key={y}>{x}</li>
+                            <li key={y}>{x} <hr /></li>
                         ))
                     }
                 </ol>
 
-                {item.strSource && <p className="my-3">Link:<a target="_blank" className="text-blue-500" href={item.strSource}>{item.strSource}</a></p>}
-                {item.strYoutube && <p className="my-3">Youtube Link:<a target="_blank" className="text-blue-500" href={item.strYoutube}>{item.strYoutube}</a></p>}
-            </div>
+                {item.strSource && <p className="my-3"><span className="font-semibold text-slate-800">Link : </span><a target="_blank" className="text-blue-500" href={item.strSource}>{item.strSource}</a></p>}
+                {item.strYoutube && <p className="my-3"><span className="font-semibold text-slate-800">Youtube Link : </span><a target="_blank" className="text-blue-500" href={item.strYoutube}>{item.strYoutube}</a></p>}
+            </section>
         </div>
         </>
     )

@@ -19,7 +19,7 @@ export default function SearchFood() {
         e.preventDefault();
 
         const url = `${api}?s=${encodeURIComponent(food.trim())}`;
-        
+
 
         try {
             const res = await fetch(url);
@@ -28,19 +28,19 @@ export default function SearchFood() {
             }
             const data = await res.json();
 
-            if(data.meals){
+            if (data.meals) {
                 setItems(data.meals);
-                
+
                 setMessage(`${data.meals.length} items found`);
             }
-            else{
+            else {
                 setItems([]);
                 setMessage("no food found")
             }
         }
         catch (err) {
             console.warn(err);
-            setErr("API Error, try again") 
+            setErr("API Error, try again")
         }
     }
     return (
@@ -51,16 +51,18 @@ export default function SearchFood() {
             <button className="px-6 py-2 rounded p-2 m-3 bg-orange-500 hover:bg-orange-600 text-white transition" type="submit">Search</button>
             <p className="inline">{message || err}</p>
 
-            <div className="grid  grid-cols-2 gap-4 mt-5">
+            <div className="grid  lg:grid-cols-2 gap-6 mt-5">
                 {
-                    items.map( elem => (
-                        <section key={elem.idMeal} className="border rounded-2xl p-3">
-                            <Link href={elem.strMeal.replaceAll(" ","-")} className="block overflow-auto">
-                            <Image src={elem.strMealThumb} alt={elem.strMeal} width={200} height={200} className="float-end rounded-xl"></Image>
-                            <h3 className="text-2xl">{elem.strMeal}</h3>
-                            <p>Category : {elem.strCategory}</p>
-                            <p>Country : {elem.strCountry}</p>
-                            <p>Area : {elem.strArea || "n/a"}</p>
+                    items.map(elem => (
+                        <section key={elem.idMeal} className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                            <Link href={encodeURIComponent(elem.strMeal)} className="block overflow-auto">
+                                <Image src={elem.strMealThumb} alt={elem.strMeal} width={200} height={200} className="float-end rounded-xl"></Image>
+                                <div className="p-6">
+                                <h3 className="text-3xl font-bold text-slate-800 mb-4">{elem.strMeal}</h3>
+                                <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Category :</span> {elem.strCategory}</p>
+                                <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Country :</span> {elem.strCountry}</p>
+                                <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Area :</span> {elem.strArea || "n/a"}</p>
+                                </div>
                             </Link>
                         </section>
                     ))
