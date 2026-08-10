@@ -56,7 +56,7 @@ export default function SearchFood() {
                     items.map(elem => (
                         <section key={elem.idMeal} className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                             <Link href={encodeURIComponent(elem.strMeal)} className="block overflow-auto">
-                                <Image src={elem.strMealThumb} alt={elem.strMeal} width={200} height={200} className="float-end rounded-xl"></Image>
+                                <Image src={elem.strMealThumb} alt={elem.strMeal} width={200} height={200} className="min-[425px]:float-end rounded-xl max-[425]:w-fit max-[425]:m-auto"></Image>
                                 <div className="p-6">
                                 <h3 className="text-3xl font-bold text-slate-800 mb-4">{elem.strMeal}</h3>
                                 <p className="text-slate-600 mb-2"><span className="font-semibold text-slate-800">Category :</span> {elem.strCategory}</p>
