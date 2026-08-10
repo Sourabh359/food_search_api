@@ -1,36 +1,250 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍴 Food Search Application
 
-## Getting Started
+A modern and responsive **Food Search Application** built with **Next.js, TypeScript, and Tailwind CSS**.
+Users can search for meals and view detailed information including ingredients, measurements, images, and other recipe details.
 
-First, run the development server:
+The application uses **TheMealDB API** to fetch meal data.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Live Demo
+
+🔗 **Live Website:** `https://food-search-api-alpha.vercel.app`
+
+## ✨ Features
+
+* 🔍 Search meals by name
+* 🍽️ Display meal details
+* 🖼️ Dynamic meal images
+* 🧂 Display ingredients and their measurements
+* 📱 Fully responsive design
+* ⚡ Fast and optimized with Next.js
+* 🔄 Loading state support
+* ❌ Error handling for failed API requests
+* 🔗 Dynamic routes for meal pages
+* 🎨 Modern UI using Tailwind CSS
+* 📦 Type-safe development using TypeScript
+* 🚀 Deployed on Vercel
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+
+### API
+
+* **TheMealDB API**
+
+### Tools
+
+* Git
+* GitHub
+* VS Code
+* Vercel
+
+## 📁 Project Structure
+
+FOOD-SEARCH-API
+│
+├── app/
+│   ├── components/
+│   │   ├── SearchFood.tsx
+│   │   ├── FoodItem.tsx
+│   │   ├── Header.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Footer.tsx
+│   │
+│   ├── about
+│   │   └── page.tsx
+│   │
+│   ├── [slug]/
+│   │   └── page.tsx
+│   │
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── public/
+│
+├── .env.local
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔎 How It Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The basic flow of the application is:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+User enters meal name
+        ↓
+Search Form
+        ↓
+Meal name is encoded
+        ↓
+TheMealDB API request
+        ↓
+API returns meal data
+        ↓
+TypeScript validates the data structure
+        ↓
+Meal information is displayed
+```
 
-## Learn More
+For example:
 
-To learn more about Next.js, take a look at the following resources:
+```text
+User Input:
+pizza
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+API Request:
+...?food=pizza
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Result:
+Meal information
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧩 TypeScript
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Meal API response ke liye TypeScript interface use ki gayi hai.
+
+Example:
+
+```ts
+export interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+  strCategory: string;
+  strArea: string;
+  strInstructions: string;
+  strIngredient1?: string;
+  strIngredient2?: string;
+  strIngredient3?: string;
+  strIngredient4?: string;
+  strMeasure1?: string;
+  strMeasure2?: string;
+  strMeasure3?: string;
+  strMeasure4?: string;
+}
+```
+
+Optional properties (`?`) un fields ke liye useful hain jo API response mein available na bhi ho sakti hain.
+
+---
+
+## 🔗 URL Encoding
+
+Search query ko safely URL mein use karne ke liye:
+
+```ts
+encodeURIComponent(food.trim())
+```
+
+use kiya gaya hai.
+
+Example:
+
+```text
+Chicken Biryani
+```
+
+ko URL mein safely pass kiya ja sakta hai.
+
+---
+
+## 📱 Responsive Design
+
+Application ko different screen sizes ke liye responsive banaya gaya hai:
+
+* 📱 Mobile
+* 📲 Tablet
+* 💻 Desktop
+
+Responsive styling ke liye **Tailwind CSS** ka use kiya gaya hai.
+
+---
+
+## 🚀 Deployment
+
+This project can be deployed easily using **Vercel**.
+
+### Build the project
+
+```bash
+npm run build
+```
+
+### Deploy
+
+1. Project ko GitHub par push karo.
+2. Vercel mein GitHub repository import karo.
+3. `NEXT_PUBLIC_SEARCHAPI` environment variable add karo.
+4. **Deploy** button par click karo.
+
+After deployment, Vercel ek live URL provide karega:
+
+```text
+https://food-search-api-alpha.vercel.app/
+```
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home Page](./screenshots/home.png)
+
+### Search Results
+
+![Search Results](./screenshots/search-results.png)
+
+### Meal Details
+
+![Meal Details](./screenshots/meal-details.png)
+
+
+## 📚 What I Learned
+
+While building this project, I practiced:
+
+* Next.js App Router
+* React Client Components
+* TypeScript interfaces
+* `useState`
+* `useEffect`
+* API fetching
+* Environment variables
+* `process.env.NEXT_PUBLIC_*`
+* Dynamic routes
+* URL encoding with `encodeURIComponent()`
+* Next.js `Image` component
+* Loading and error handling
+* Responsive UI with Tailwind CSS
+* Git & GitHub
+* Vercel deployment
+
+---
+
+## 👨‍💻 Author
+
+**Sourabh**
+
+GitHub: `https://github.com/Sourabh359`
+
+---
+
+## 📄 License
+
+This project is created for learning and portfolio purposes.
+
+Meal data is provided by **TheMealDB API**.
