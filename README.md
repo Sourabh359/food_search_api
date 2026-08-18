@@ -7,7 +7,7 @@ The application uses **TheMealDB API** to fetch meal data.
 
 ## 🚀 Live Demo
 
-🔗 **Live Website:** `https://food-search-api-alpha.vercel.app`
+🔗 **Live Website:** [view live demo](https://food-search-api-alpha.vercel.app)
 
 ## ✨ Features
 
