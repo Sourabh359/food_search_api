@@ -239,7 +239,7 @@ While building this project, I practiced:
 
 **Sourabh**
 
-GitHub: `https://github.com/Sourabh359`
+GitHub: [GitHub profile](https://github.com/Sourabh359)
 
 ---
 
