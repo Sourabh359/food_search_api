@@ -7,7 +7,7 @@ The application uses **TheMealDB API** to fetch meal data.
 
 ## 🚀 Live Demo
 
-🔗 **Live Website:** `https://food-search-api-alpha.vercel.app`
+🔗 **Live Website:** [view live demo](https://food-search-api-alpha.vercel.app)
 
 ## ✨ Features
 
@@ -202,15 +202,15 @@ https://food-search-api-alpha.vercel.app/
 
 ### Home Page
 
-![Home Page](./screenshots/home.png)
+![Home Page](../screenshots/home.png)
 
 ### Search Results
 
-![Search Results](./screenshots/search-results.png)
+![Search Results](../screenshots/search-results.png)
 
 ### Meal Details
 
-![Meal Details](./screenshots/meal-details.png)
+![Meal Details](../screenshots/meal.details.png)
 
 
 ## 📚 What I Learned
@@ -239,7 +239,7 @@ While building this project, I practiced:
 
 **Sourabh**
 
-GitHub: `https://github.com/Sourabh359`
+GitHub: [GitHub profile](https://github.com/Sourabh359)
 
 ---
 
