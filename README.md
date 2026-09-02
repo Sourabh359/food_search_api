@@ -202,15 +202,15 @@ https://food-search-api-alpha.vercel.app/
 
 ### Home Page
 
-![Home Page](./screenshots/home.png)
+![Home Page](../screenshots/home.png)
 
 ### Search Results
 
-![Search Results](./screenshots/search-results.png)
+![Search Results](../screenshots/search-results.png)
 
 ### Meal Details
 
-![Meal Details](./screenshots/meal-details.png)
+![Meal Details](../screenshots/meal.details.png)
 
 
 ## 📚 What I Learned
